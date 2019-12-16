@@ -31,8 +31,6 @@ public class ParserXlsx implements Parser {
             XSSFRow firstRow = sheet.getRow(sheet.getFirstRowNum());
             XSSFCell firstCell = firstRow.getCell(firstRow.getFirstCellNum());
             firstCell.toString();
-//            ("Отчёт по данным поставщика «Индивидуальный предприниматель Максимович В.А.» с 08.04.2019 по 15.04.2019 сформирован 02.05.2019 9:43:23. Склад: Все\n"
-//                + "Данные обновлены 15.04.2019 22:53:21.")
 
             Row headerRow = sheet.getRow(sheet.getFirstRowNum() + 2);
             logger.info("parse3");
