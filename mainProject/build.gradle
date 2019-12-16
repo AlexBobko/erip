@@ -1,0 +1,31 @@
+apply plugin: 'application'
+mainClassName = "com.erip.MainEripApp"
+//mainClassName = "com.erip.HelloWorld"
+version "${currentVersion}"
+
+//sourceCompatibility = JavaVersion.VERSION_1_8
+//targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "${log4j2Version}"
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: "${log4j2Version}"
+//    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
+//    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: "${jacksonVersion}"
+    compile group: 'io.vavr', name: 'vavr', version: "${vavrVersion}"
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: "${poiVersion}"
+    compile group: 'org.apache.poi', name: 'poi', version: "${poiVersion}"
+    compile group: 'commons-net', name: 'commons-net', version: "${commonsNetVersion}"
+
+    compile project(":libProj")
+
+    testCompile group: 'org.mockftpserver', name: 'MockFtpServer', version: "${mockFtpServerVersion}"
+
+}
+
+jar {
+    manifest.attributes("Main-Class": mainClassName)
+}
+
+
+
+

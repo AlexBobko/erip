@@ -1,0 +1,15 @@
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      #      username: user_piggy
+      #      password: "1"
+      database: "erip"
+      port: 27017
+
+custom:
+  conf:
+    vl: "customValueForTesting"
+server:
+  port: 8889

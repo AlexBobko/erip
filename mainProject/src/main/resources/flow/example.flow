@@ -1,0 +1,21 @@
+package flow
+
+import com.erip.dsl.DefaultFlowName
+
+spec(flowSpecs) {
+
+    flow(DefaultFlowName.BASIC) {
+        ["one", "two", "jopa"]
+    }
+
+    /*flow(DefaultFlowName.ALTERNATIVE) {
+        []
+    }*/
+
+    flow(DefaultFlowName.DEFAULT_FLOW_TYPE) {
+        ["x", "y", "jopa"]
+    }
+
+//    [DefaultFlowName.BASIC, DefaultFlowName.DEFAULT_FLOW_TYPE]
+
+}

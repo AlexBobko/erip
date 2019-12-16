@@ -1,0 +1,145 @@
+plugins {
+    id 'java'
+    id 'idea'
+//    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+}
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'idea'
+version "${currentVersion}"
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+    apply plugin: 'maven'
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+
+
+    tasks.withType(JavaCompile) {
+        setSourceCompatibility JavaVersion.VERSION_1_8
+        setTargetCompatibility JavaVersion.VERSION_1_8
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'https://jitpack.io' }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+    dependencies {
+
+        runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+//        implementation 'org.springframework.cloud:spring-cloud-stream-reactive'
+
+//    annotationProcessor 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: "${springBootVersion}"
+//        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: "${springBootVersion}"
+
+
+        compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "${log4j2Version}"
+        compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: "${log4j2Version}"
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
+        compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: "${jacksonVersion}"
+
+        compile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}"
+
+        compile group: 'com.google.guava', name: 'guava', version: "${googleGuavaVersion}"
+
+        compile group: 'org.springframework', name: 'spring-core', version: "${srping5Version}"
+
+//        compile group: 'org.springframework.data', name: 'spring-data-mongodb', version: "${springDataVersion}"
+
+        compile 'org.mongodb:mongodb-driver-reactivestreams:1.11.0'
+
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: "${springBootVersion}"
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: "${springBootVersion}"
+//        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: "${springBootVersion}"
+        compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: "${springBootVersion}"
+//        compile 'org.springframework.boot:spring-boot-starter-webflux'
+
+        runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+
+
+        compile "io.springfox:springfox-swagger2:${springFoxVersion}"
+        compile "io.springfox:springfox-swagger-ui:${springFoxVersion}"
+        compile "io.springfox:springfox-spring-webflux:${springFoxVersion}"
+
+
+//        compile group: 'io.springfox', name: 'springfox-swagger2', version: "${swaggerVersion}"
+//        compile group: 'io.springfox', name: 'springfox-swagger-ui', version: "${swaggerVersion}"
+//        compile group: 'io.springfox', name: 'springfox-spring-webflux', version: "${swaggerVersion}"
+
+        compile group: 'io.projectreactor', name: 'reactor-core', version: "${reactorCoreVersion}"
+
+        /*testCompile 'org.springframework.boot:spring-boot-starter-test'
+        testCompile('io.projectreactor:reactor-test')
+        * */
+
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.7.RELEASE'
+        testCompile group: 'io.projectreactor', name: 'reactor-test', version: '3.2.11.RELEASE'
+
+//        testCompile 'io.projectreactor:reactor-test:3.2.6.RELEASE'
+//        testCompile('org.springframework.boot:spring-boot-starter-test')
+        
+        
+        testCompile group: 'junit', name: 'junit', version: "${jUnitTestVersion}"
+        testCompile group: 'org.mockito', name: 'mockito-all', version: "${mockitoTestVersion}"
+
+
+//        compile group: 'io.vavr', name: 'vavr', version: "${vavrVersion}"
+//        compile project(":libProj")
+
+//    compile group: 'org.springframework.cloud', name: 'spring-cloud-config-server', version: '2.1.2.RELEASE'
+
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.2.RELEASE'
+//    compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.8.RELEASE'
+
+
+    }
+    idea {
+        project {
+            jdkName "${jdkVersionLevel}"
+            languageLevel "${jdkVersionLevel}"
+        }
+        /*module {
+            name = "mm-platform"
+        }*/
+    }
+}
+
+
+//group 'com.erip'
+
+task wrapper(type: Wrapper) {
+    gradleVersion "${gradleWrapperVersion}"
+}
+
+//jar {
+//    manifest.attributes("Main-Class": mainClassName)
+//}
+
+
+//group 'defGroupId'
+//version '1.0-SNAPSHOT'
+//sourceCompatibility = 1.8
+
+//repositories {
+//    mavenCentral()
+//    maven {
+//        url "https://plugins.gradle.org/m2/"
+//    }
+//}
+
+//dependencies {
+//
+////    annotationProcessor 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: "${springBootVersion}"
+//    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+////    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: "${springBootVersion}"
+//
+//}
+

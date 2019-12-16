@@ -1,0 +1,5 @@
+rootProject.name = 'rootErip1'
+include 'mainProject'
+include 'libProj'
+include 'configService'
+
