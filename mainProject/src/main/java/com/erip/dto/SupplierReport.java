@@ -1,14 +1,5 @@
 package com.erip.dto;
 
-//bte&]dxusy~G
-//lakatir_wildb db
-//user lakatir_wildber
-
-//id_rsa_canabeast
-
-//wildberries
-//GRANT ALL ON wildberries.* TO 'wildber' IDENTIFIED BY '111';
-
 public class SupplierReport {
 
     String brand;

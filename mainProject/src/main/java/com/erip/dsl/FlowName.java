@@ -1,6 +1,6 @@
-package com.erip.dsl;
-
-public interface FlowName {
-
-    String name();
-}
+//package com.erip.dsl;
+//
+//public interface FlowName {
+//
+//    String name();
+//}
